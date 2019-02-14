@@ -4,11 +4,6 @@ import "moment-business-days";
 import "./App.css";
 import Headline from "./components/Headline";
 
-//moment months are Zero indexed, don't forget.
-//*date format "yyyy-mm-dd"
-//!moment().businessDiff(moment().endOf("month"))
-//^number of business days remaining in the month
-
 class App extends Component {
   state = {
     month: moment()
