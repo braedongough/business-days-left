@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import moment from "moment";
-import "moment-business-days";
+import "moment";
+import moment from "moment-business-days";
 import "./App.css";
 import Headline from "./components/Headline";
+import dkMoment from "./Utils/fixHolidays";
 
 class App extends Component {
   state = {
@@ -12,7 +13,7 @@ class App extends Component {
     remainingBusinessDays: moment().businessDiff(moment().endOf("month")),
   };
   componentDidMount() {
-    console.log(moment().format("MMMM"));
+    console.log(dkMoment);
   }
 
   render() {
