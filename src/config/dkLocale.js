@@ -12,8 +12,11 @@ const holidays = [
   "2019-12-26",
 ];
 
+//19 business days in april
+
+const holidayFormat = "YYYY-MM-DD";
+
 moment.updateLocale("en", {
   holidays,
+  holidayFormat,
 });
-const dkMoment = moment("2019-03-01");
-export default dkMoment;

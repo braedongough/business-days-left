@@ -1,20 +1,10 @@
 import React, { Component } from "react";
 import "moment";
 import moment from "moment-business-days";
-import styled from "styled-components";
-import BusinessDays from "./components/BusinessDays";
-import BusinessDaysPercentage from "./components/BusinessDaysPercentage";
-import dkMoment from "./Utils/fixHolidays";
-
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  text-align: center;
-  p {
-    font-size: 200px;
-    margin: 0 auto;
-  }
-`;
+import "./config/dkLocale";
+import DisplayBusinessDays from "./components/DisplayBusinessDays";
+import DisplayBusinessDaysPercentage from "./components/DisplayBusinessDaysPercentage";
+import Container from "./components/Container";
 
 class App extends Component {
   state = {
@@ -22,21 +12,24 @@ class App extends Component {
       .format("MMMM")
       .toUpperCase(),
     remainingBusinessDays: moment().businessDiff(moment().endOf("month")),
+    remainingBusinessDaysPercentage:
+      (moment().businessDiff(moment().endOf("month")) /
+        moment()
+          .startOf("month")
+          .businessDiff(moment().endOf("month"))) *
+      100,
   };
-  componentDidMount() {
-    console.log(dkMoment);
-  }
 
   render() {
     return (
       <Container>
-        <BusinessDays
+        <DisplayBusinessDays
           month={this.state.month}
           remainingBusinessDays={this.state.remainingBusinessDays}
         />
-        <BusinessDaysPercentage
+        <DisplayBusinessDaysPercentage
           month={this.state.month}
-          remainingBusinessDays={this.state.remainingBusinessDays}
+          remainingBusinessDays={this.state.remainingBusinessDaysPercentage}
         />
       </Container>
     );
