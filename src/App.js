@@ -1,9 +1,20 @@
 import React, { Component } from "react";
 import "moment";
 import moment from "moment-business-days";
-import "./App.css";
-import Headline from "./components/Headline";
+import styled from "styled-components";
+import BusinessDays from "./components/BusinessDays";
+import BusinessDaysPercentage from "./components/BusinessDaysPercentage";
 import dkMoment from "./Utils/fixHolidays";
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  p {
+    font-size: 200px;
+    margin: 0 auto;
+  }
+`;
 
 class App extends Component {
   state = {
@@ -18,10 +29,16 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Headline month={this.state.month} />
-        <p className="huge">{this.state.remainingBusinessDays}</p>
-      </div>
+      <Container>
+        <BusinessDays
+          month={this.state.month}
+          remainingBusinessDays={this.state.remainingBusinessDays}
+        />
+        <BusinessDaysPercentage
+          month={this.state.month}
+          remainingBusinessDays={this.state.remainingBusinessDays}
+        />
+      </Container>
     );
   }
 }
