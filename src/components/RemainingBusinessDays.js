@@ -10,16 +10,11 @@ export default class RemainingBusinessDays extends Component {
       .toUpperCase(),
     remainingBusinessDays: moment().businessDiff(moment().endOf("month")),
     remainingBusinessDaysPercentage:
-      this.remainingBusinessDays /
-      moment()
-        .startOf("month")
-        .businessDiff(moment().endOf("month")),
-  };
-
-  getBusinessDaysInMonth = () => {
-    return moment()
-      .startOf("month")
-      .businessDiff(moment().endOf("month"));
+      (moment().businessDiff(moment().endOf("month")) /
+        moment()
+          .startOf("month")
+          .businessDiff(moment().endOf("month"))) *
+      100,
   };
   render() {
     return <div />;
