@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./config/dkLocale";
-import DisplayBusinessDays from "./components/DisplayBusinessDays";
-import DisplayBusinessDaysPercentage from "./components/DisplayBusinessDaysPercentage";
+import DisplayBusinessDaysRemaining from "./components/DisplayBusinessDaysRemaining";
+import DisplayBusinessDaysElapsed from "./components/DisplayBusinessDaysElapsed";
 import Container from "./components/Container";
 import * as getBusinessDays from "./utils/getBusinessDays";
 
@@ -10,6 +10,8 @@ class App extends Component {
     month: getBusinessDays.month().toUpperCase(),
     remainingBusinessDays: getBusinessDays.remaining(),
     remainingBusinessDaysPercentage: getBusinessDays.remainingPercentage(),
+    elapsedBusinessDays: getBusinessDays.elapsed(),
+    elapsedBusinessDaysPercentage: getBusinessDays.elapsedPercentage(),
   };
   componentDidMount() {
     console.log(getBusinessDays.total());
@@ -18,13 +20,18 @@ class App extends Component {
   render() {
     return (
       <Container>
-        <DisplayBusinessDays
+        <DisplayBusinessDaysRemaining
           month={this.state.month}
           remainingBusinessDays={this.state.remainingBusinessDays}
+          remainingBusinessDaysPercentage={
+            this.state.remainingBusinessDaysPercentage
+          }
         />
-        <DisplayBusinessDaysPercentage
-          month={this.state.month}
-          remainingBusinessDays={this.state.remainingBusinessDaysPercentage}
+        <DisplayBusinessDaysElapsed
+          elapsedBusinessDays={this.state.elapsedBusinessDays}
+          elapsedBusinessDaysPercentage={
+            this.state.elapsedBusinessDaysPercentage
+          }
         />
       </Container>
     );

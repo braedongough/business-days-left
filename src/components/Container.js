@@ -5,7 +5,7 @@ const Container = styled.div`
   grid-template-columns: 1fr 1fr;
   text-align: center;
   p {
-    font-size: 300px;
+    font-size: 150px;
     margin: 0 auto;
   }
 `;

@@ -11,3 +11,10 @@ export const total = () =>
 export const remaining = () => moment().businessDiff(moment().endOf("month"));
 
 export const remainingPercentage = () => (remaining() / total()) * 100;
+
+export const elapsed = () =>
+  moment()
+    .startOf("month")
+    .businessDiff(moment());
+
+export const elapsedPercentage = () => (elapsed() / total()) * 100;
