@@ -6,7 +6,7 @@ export default class BusinessDays extends Component {
         <h1>HOW MANY OF THOSE DAYS HAVE ALREADY PASSED??</h1>
         <p>
           {`          ${this.props.elapsedBusinessDays} days or
-          ${this.props.elapsedBusinessDaysPercentage}%`}
+          ${Math.floor(this.props.elapsedBusinessDaysPercentage)}%`}
         </p>
       </div>
     );
