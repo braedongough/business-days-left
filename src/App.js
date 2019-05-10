@@ -19,21 +19,26 @@ class App extends Component {
 
   render() {
     return (
-      <Container>
-        <DisplayBusinessDaysRemaining
-          month={this.state.month}
-          remainingBusinessDays={this.state.remainingBusinessDays}
-          remainingBusinessDaysPercentage={
-            this.state.remainingBusinessDaysPercentage
-          }
-        />
-        <DisplayBusinessDaysElapsed
-          elapsedBusinessDays={this.state.elapsedBusinessDays}
-          elapsedBusinessDaysPercentage={
-            this.state.elapsedBusinessDaysPercentage
-          }
-        />
-      </Container>
+      <>
+        <Container>
+          <DisplayBusinessDaysRemaining
+            month={this.state.month}
+            remainingBusinessDays={this.state.remainingBusinessDays}
+            remainingBusinessDaysPercentage={
+              this.state.remainingBusinessDaysPercentage
+            }
+          />
+          <DisplayBusinessDaysElapsed
+            elapsedBusinessDays={this.state.elapsedBusinessDays}
+            elapsedBusinessDaysPercentage={
+              this.state.elapsedBusinessDaysPercentage
+            }
+          />
+        </Container>
+        <div style={{ textAlign: "center", fontSize: 10 }}>
+          Nicholas is a bin
+        </div>
+      </>
     );
   }
 }
